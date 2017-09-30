@@ -9,12 +9,6 @@ from text_preprocessor.metadata_extractor import DocumentLoader
 from evaluation.helper_funcs import *
 
 
-def get_document_words(document_name, N):
-    f = open(document_name, 'r')
-    full_document = [word for line in f for word in line.rstrip().split(' ')]
-    return full_document[:int(N)]
-
-
 def evaluate_models_perplexities(train_file, test_file, N):
     size_array = [N/128, N/64, N/16, N/4, N]
     alpha_prime = 2
@@ -81,7 +75,14 @@ def evaluate_author_classification():
     test_file_1 = os.path.join(os.getcwd(), "data/pg141.txt.clean")
     test_file_2 = os.path.join(os.getcwd(), "data/pg1400.txt.clean")
 
+    alphaprime = 2
+
     meta_data = DocumentLoader(train_file=train_file, test_file=[test_file_1, test_file_2]).get_metadata()
+    prior = Prior(meta_data, alpha_prime=alphaprime).get_prior()
+
+
+    train_document = get_document_words(train_file, )
+
     print (meta_data["K"])
     print (meta_data["N"])
     pass

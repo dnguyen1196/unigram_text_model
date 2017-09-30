@@ -61,4 +61,4 @@ Repeat the above but remove all words <= 50 times
 
 
 NOTE:
-- how to hand le the case where ln(0) = -inf
+- how to handle the case where ln(0) = -inf
