@@ -81,7 +81,9 @@ def evaluate_author_classification():
     test_file_1 = os.path.join(os.getcwd(), "data/pg141.txt.clean")
     test_file_2 = os.path.join(os.getcwd(), "data/pg1400.txt.clean")
 
-    meta_data = DocumentLoader(train_file=train_file, test_file=[test_file_1, test_file_2], )
+    meta_data = DocumentLoader(train_file=train_file, test_file=[test_file_1, test_file_2]).get_metadata()
+    print (meta_data["K"])
+    print (meta_data["N"])
     pass
 
 
@@ -93,7 +95,7 @@ def main(argv):
 
     # evaluate_models_perplexities(train_file=train_file, test_file=test_file, N=N)
     # evaluate_model_evidence(train_file, test_file, N)
-
+    evaluate_author_classification()
 
 if __name__ == "__main__":
     main(sys.argv[1:])

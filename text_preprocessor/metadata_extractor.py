@@ -1,3 +1,4 @@
+import math
 """
 DocumentLoader
 This class loads the training and test text files to build the dictionary
@@ -6,7 +7,7 @@ For the test file, it adds word that are not covered in the training text file
 This creates a vocabulary for the entire train + test text
 """
 class DocumentLoader(object):
-    def __init__(self, train_file, test_file, training_size):
+    def __init__(self, train_file, test_file, training_size=math.inf):
         self.train_file = train_file
         self.test_file = test_file
         self.training_size = training_size
