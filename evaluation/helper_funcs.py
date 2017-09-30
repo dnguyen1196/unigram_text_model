@@ -5,18 +5,18 @@ the document and the given prior
 
 import math
 
+
+def get_document_words(document_name, N=None):
+    f = open(document_name, 'r')
+    full_document = [word for line in f for word in line.strip().split()]
+    if N is not None:
+        return full_document[:int(N)]
+    return full_document
+
 """
 the formula for the evidence function is P(Data | alpha)
 = gamma(a0) [gamma(a1+m1)...gamma(aK+mK)] / gamma(a0 + N) [gamma(a1)...gamma(aK)]
 """
-
-
-def get_document_words(document_name, N=None):
-    f = open(document_name, 'r')
-    full_document = [word for line in f for word in line.rstrip().split(' ')]
-    if N is not None:
-        return full_document[:int(N)]
-    return full_document
 
 
 def find_log_evidence(metadata, prior):
@@ -28,12 +28,12 @@ def find_log_evidence(metadata, prior):
     for i in range(int(a0), int(a0 + n)):
         log_evidence -= math.log(i)
 
-    for word in dictionary:
-        if dictionary[word] >= 0:
+    for word in dictionary.keys():
+        if dictionary[word] > 0:
             mk = dictionary[word]
             ak = prior[word]
-            for j in range(int(ak), int(ak + mk)):
-                log_evidence += math.log(j)
+            for i in range(int(ak), int(ak + mk)):
+                log_evidence += math.log(i)
 
     return log_evidence
 
@@ -53,4 +53,4 @@ def find_perplexity(document, estimator):
             # and exp(inf) = inf, so we return inf
             return math.inf
         log_probability += math.log(p_word)
-    return math.exp(-1/ float(n) * log_probability)
+    return math.exp(-1/float(n) * log_probability)

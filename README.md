@@ -32,6 +32,7 @@ Questions:
 
 Requirements
 Task 1
+- Calculate perplexity on train data set (portion)
 - calculate perplexity on test data set
 - train 3 different estimators on the initial segment o
 of the data (N/128 -> N)
@@ -50,7 +51,7 @@ as function of alpha prime
 
 Task 3 author identification
 Train model on some train dataset with
-alpha prime = 2, and evaluate perplexit on each of 
+alpha prime = 2, and evaluate perplexity on each of 
 the other two texts
 
 How to classify?? ==> like it's just different? Or small perplexity means its 

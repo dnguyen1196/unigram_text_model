@@ -3,6 +3,8 @@ Maximum likelihood estimator
 Find the probability of a word appearing in a document based on
 information obtained from training model
 """
+
+
 class MaxLikelihoodEstimator(object):
     def __init__(self, metadata):
         self.metadata = metadata
@@ -12,6 +14,7 @@ class MaxLikelihoodEstimator(object):
     Returns the probability(word | model)
     """
     def find_probability(self, word):
-        if word not in self.metadata["dictionary"]:
+        dictionary = self.metadata["dictionary"]
+        if word not in dictionary:
             return 0
-        return float((self.metadata["dictionary"])[word])/(self.N)
+        return float(dictionary[word])/self.N

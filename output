@@ -1,0 +1,76 @@
+/Library/Frameworks/Python.framework/Versions/3.5/bin/python3.5 /Users/nguyenmanhduc/Documents/Master_folder/Classes/comp_136/hw/unigram_text_model/main.py
+Evaluating models on perplexity ... the report format is as follows
+<training size>
+<estimator>: <training_set_perplexity> # <test_set_perplexity>
+
+training size:  5000
+MLE:  3388.2567752667333  -  inf
+MAP:  5915.104263875246  -  10098.36492411617
+PDE:  7014.415012644821  -  9814.024919445475
+
+training size:  10000
+MLE:  5005.389219343313  -  inf
+MAP:  6453.994771744834  -  9992.362371992125
+PDE:  7230.294305050776  -  9668.062580182157
+
+training size:  40000
+MLE:  7478.035656314462  -  inf
+MAP:  7669.433287645091  -  9380.752312326787
+PDE:  7866.496544080013  -  9224.511912933269
+
+training size:  160000
+MLE:  8292.385691215124  -  inf
+MAP:  8303.124332848962  -  8839.546029448937
+PDE:  8324.246394665119  -  8817.904839672385
+
+training size:  640000
+MLE:  8506.43367662384  -  8657.623041731129
+MAP:  8506.96513236839  -  8654.590090965366
+PDE:  8508.427803625034  -  8652.803792634671
+
+
+
+
+
+/Library/Frameworks/Python.framework/Versions/3.5/bin/python3.5 /Users/nguyenmanhduc/Documents/Master_folder/Classes/comp_136/hw/unigram_text_model/main.py
+Evaluate prior model on evidence
+Report format: <train set perplexity> # <test set perplexity> # <evidence>
+10000
+5000
+Alpha prime:  1
+10098.36492411617  #  -46113.90994393711
+Alpha prime:  2
+9814.024919445475  #  -46016.4221833803
+Alpha prime:  3
+9786.08170018863  #  -46004.650537492256
+Alpha prime:  4
+9795.817303703838  #  -46005.47130753046
+Alpha prime:  5
+9812.080606261894  #  -46008.75036478753
+Alpha prime:  6
+9828.21403004244  #  -46012.29823477969
+Alpha prime:  7
+9842.709323329744  #  -46015.576369175054
+Alpha prime:  8
+9855.37841243399  #  -46018.47568447928
+Alpha prime:  9
+9866.383690155306  #  -46021.00839884931
+Alpha prime:  10
+9875.959835677339  #  -46023.21824469435
+
+Process finished with exit code 0
+
+
+
+/Library/Frameworks/Python.framework/Versions/3.5/bin/python3.5 /Users/nguyenmanhduc/Documents/Master_folder/Classes/comp_136/hw/unigram_text_model/main.py
+72188
+18252
+Without removing infrequent words
+test file 1:  125.95641718864444
+test file 2:  145.46244488710116
+46994
+18252
+After removing infrequent words
+test file 1:  159.33297954626798
+test file 2:  172.49433288012804
+
