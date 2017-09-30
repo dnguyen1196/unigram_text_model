@@ -79,9 +79,15 @@ def evaluate_author_classification():
 
     meta_data = DocumentLoader(train_file=train_file, test_file=[test_file_1, test_file_2]).get_metadata()
     prior = Prior(meta_data, alpha_prime=alphaprime).get_prior()
+    PDE = PredictiveDistribution(meta_data=meta_data, prior=prior)
 
 
-    train_document = get_document_words(train_file, )
+    train_document = get_document_words(train_file)
+    test_document_1 = get_document_words(test_file_1)
+    test_document_2 = get_document_words(test_file_2)
+
+    perplexity_1 = find_perplexity(test_document_1, PDE)
+    perplexity_2 = find_perplexity(test_document_2, PDE)
 
     print (meta_data["K"])
     print (meta_data["N"])

@@ -10,6 +10,7 @@ the formula for the evidence function is P(Data | alpha)
 = gamma(a0) [gamma(a1+m1)...gamma(aK+mK)] / gamma(a0 + N) [gamma(a1)...gamma(aK)]
 """
 
+
 def get_document_words(document_name, N=None):
     f = open(document_name, 'r')
     full_document = [word for line in f for word in line.rstrip().split(' ')]
