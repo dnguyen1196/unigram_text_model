@@ -1,4 +1,6 @@
-
+#
+#   The class prior
+#
 class Prior(object):
     def __init__(self, metadata, alpha_prime):
         self.dictionary = metadata["dictionary"]

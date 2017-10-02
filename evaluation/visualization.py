@@ -2,6 +2,9 @@ import matplotlib.pyplot as plt
 import os
 
 
+#
+# This file contains helper function to plot and visualize data
+#
 def plot_perplexities_vs_training_size(model_perplexities):
     training_size = [tup[0] for tup in model_perplexities[0]]
     MLE_train = [tup[1] for tup in model_perplexities[0]]

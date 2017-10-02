@@ -1,3 +1,7 @@
+"""
+Main program that calls on all the functions to intialize model, do evaluation
+"""
+
 import sys
 
 from probability_functions.maximum_likelihood_estimator import MaxLikelihoodEstimator
@@ -8,7 +12,9 @@ from text_preprocessor.metadata_extractor import DocumentExtractor
 from evaluation.helper_funcs import *
 from evaluation.visualization import *
 
-
+#
+# Helper function to perform evaluation of model perplexities
+#
 def evaluate_models_perplexities(train_file, test_file, N):
     size_array = [N/128, N/64, N/16, N/4, N]
     alpha_prime = 2
@@ -55,6 +61,9 @@ def evaluate_models_perplexities(train_file, test_file, N):
     return model_perplexities
 
 
+#
+# Helper function to perform evaluation of model evidence
+#
 def evaluate_model_evidence(train_file, test_file, N):
     training_size = N/128 # Training size = N/128
     print("Evaluate prior model on evidence")
@@ -82,6 +91,9 @@ def evaluate_model_evidence(train_file, test_file, N):
     return model_evidence
 
 
+#
+#   Helper function to classify author based on text perplexity
+#
 def evaluate_author_classification(train_file, test_file_1, test_file_2):
     alpha_prime = 2
     print("Evaluating perplexity for author classification")
@@ -121,6 +133,9 @@ def evaluate_author_classification(train_file, test_file_1, test_file_2):
     return document_perplexities
 
 
+#
+# Entry into the program
+#
 def main(argv):
     train_file = os.path.join(os.getcwd(), "training_data.txt")
     test_file = os.path.join(os.getcwd(), "test_data.txt")
