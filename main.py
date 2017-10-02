@@ -1,5 +1,4 @@
 import sys
-import os
 
 from probability_functions.maximum_likelihood_estimator import MaxLikelihoodEstimator
 from probability_functions.maximum_aposteriori import MaximumAPosteriori
@@ -7,9 +6,7 @@ from probability_functions.predictive_distribution import PredictiveDistribution
 from probability_functions.prior import Prior
 from text_preprocessor.metadata_extractor import DocumentExtractor
 from evaluation.helper_funcs import *
-
-import matplotlib
-import matplotlib.pyplot as plt
+from evaluation.visualization import *
 
 
 def evaluate_models_perplexities(train_file, test_file, N):
@@ -124,20 +121,6 @@ def evaluate_author_classification(train_file, test_file_1, test_file_2):
     return document_perplexities
 
 
-def plot_perplexities_vs_training_size(model_perplexities):
-    training_size = [tup[0] for tup in model_perplexities[0]]
-    training_perplexity = [tup[1] for tup in model_perplexities[0]]
-    test_perplexity = [tup[2] for tup in model_perplexities[0]]
-
-    print(training_size)
-    print(training_perplexity)
-    print(test_perplexity)
-
-    plt.scatter(training_size, test_perplexity, label="testing perplexity vs training size",marker="o", c="b")
-    plt.scatter(training_size, training_perplexity, label="training perplexity vs training size",marker="s", c="r")
-    plt.show()
-
-
 def main(argv):
     train_file = os.path.join(os.getcwd(), "data/training_data.txt")
     test_file = os.path.join(os.getcwd(), "data/test_data.txt")
@@ -145,19 +128,14 @@ def main(argv):
 
     model_perplexities = evaluate_models_perplexities(train_file=train_file, test_file=test_file, N=total_word_count)
     plot_perplexities_vs_training_size(model_perplexities)
-    # fig, ax = plt.subplots()
-    # training_size = [tup[0] for tup in model_perplexities[0]]
-    # training_perplexity = [tup[1] for tup in model_perplexities[0]]
-    # test_perplexity = [tup[2] for tup in model_perplexities[0]]
-    # ax.scatter(training_size, test_perplexity, label="training perplexity vs training size")
-    # plt.show()
 
-    # model evaluate_model_evidence(train_file, test_file, N=total_word_count)
+    model_evidence = evaluate_model_evidence(train_file, test_file, N=total_word_count)
+    plot_evidence_against_alpha(model_evidence=model_evidence)
 
-    # train_file = os.path.join(os.getcwd(), "data/pg121.txt.clean")
-    # test_file_1 = os.path.join(os.getcwd(), "data/pg141.txt.clean")
-    # test_file_2 = os.path.join(os.getcwd(), "data/pg1400.txt.clean")
-    # evaluate_author_classification(train_file, test_file_1, test_file_2)
+    train_file = os.path.join(os.getcwd(), "data/pg121.txt.clean")
+    test_file_1 = os.path.join(os.getcwd(), "data/pg141.txt.clean")
+    test_file_2 = os.path.join(os.getcwd(), "data/pg1400.txt.clean")
+    evaluate_author_classification(train_file, test_file_1, test_file_2)
 
 
 if __name__ == "__main__":

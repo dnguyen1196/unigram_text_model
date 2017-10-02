@@ -1,4 +1,4 @@
-/Library/Frameworks/Python.framework/Versions/3.5/bin/python3.5 /Users/nguyenmanhduc/Documents/Master_folder/Classes/comp_136/hw/unigram_text_model/main.py
+/home/duc/Documents/homework/COMP136/HW1/venv/bin/python /home/duc/Documents/homework/COMP136/HW1/main.py
 Evaluating models on perplexity ... the report format is as follows
 <training size>
 <estimator>: <training_set_perplexity> # <test_set_perplexity>
@@ -31,12 +31,8 @@ PDE:  8508.427803625034  -  8652.803792634671
 
 
 
-
-/Library/Frameworks/Python.framework/Versions/3.5/bin/python3.5 /Users/nguyenmanhduc/Documents/Master_folder/Classes/comp_136/hw/unigram_text_model/main.py
 Evaluate prior model on evidence
-Report format: <train set perplexity> # <test set perplexity> # <evidence>
-10000
-5000
+Report format: <test set perplexity> # <evidence>
 Alpha prime:  1
 10098.36492411617  #  -46113.90994393711
 Alpha prime:  2
@@ -58,19 +54,16 @@ Alpha prime:  9
 Alpha prime:  10
 9875.959835677339  #  -46023.21824469435
 
-Process finished with exit code 0
 
 
 
-/Library/Frameworks/Python.framework/Versions/3.5/bin/python3.5 /Users/nguyenmanhduc/Documents/Master_folder/Classes/comp_136/hw/unigram_text_model/main.py
-72188
-18252
+Evaluating perplexity for author classification
 Without removing infrequent words
-test file 1:  125.95641718864444
-test file 2:  145.46244488710116
-46994
-18252
-After removing infrequent words
-test file 1:  159.33297954626798
-test file 2:  172.49433288012804
+pg141:  4784.495859529101
+pg1400:  6397.17011622876
 
+After removing infrequent words
+pg141:  8761.379023045318
+pg1400:  10231.85777561164
+
+Process finished with exit code 0
