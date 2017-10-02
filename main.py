@@ -122,8 +122,8 @@ def evaluate_author_classification(train_file, test_file_1, test_file_2):
 
 
 def main(argv):
-    train_file = os.path.join(os.getcwd(), "data/training_data.txt")
-    test_file = os.path.join(os.getcwd(), "data/test_data.txt")
+    train_file = os.path.join(os.getcwd(), "training_data.txt")
+    test_file = os.path.join(os.getcwd(), "test_data.txt")
     total_word_count = 640000
 
     model_perplexities = evaluate_models_perplexities(train_file=train_file, test_file=test_file, N=total_word_count)
@@ -132,9 +132,9 @@ def main(argv):
     model_evidence = evaluate_model_evidence(train_file, test_file, N=total_word_count)
     plot_evidence_against_alpha(model_evidence=model_evidence)
 
-    train_file = os.path.join(os.getcwd(), "data/pg121.txt.clean")
-    test_file_1 = os.path.join(os.getcwd(), "data/pg141.txt.clean")
-    test_file_2 = os.path.join(os.getcwd(), "data/pg1400.txt.clean")
+    train_file = os.path.join(os.getcwd(), "pg121.txt.clean")
+    test_file_1 = os.path.join(os.getcwd(), "pg141.txt.clean")
+    test_file_2 = os.path.join(os.getcwd(), "pg1400.txt.clean")
     evaluate_author_classification(train_file, test_file_1, test_file_2)
 
 
